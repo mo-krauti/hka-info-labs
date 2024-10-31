@@ -1,0 +1,21 @@
+#cloud-config
+manage_etc_hosts: false
+users:
+  - name: labrat
+    sudo:  ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    groups:
+      - sudo
+    lock_passwd: false
+    # password: kn1lab
+    passwd: $6$EM4fsAGxLNUOCPml$4pI3QZ17kvlIWeIoTMWgn.krNM3y2bHD81oMoQFb7H43Qzb6W06gBMu3Nzhpe4txC9ZajvUA2Atuy9SZnvhqG0
+    ssh_authorized_keys:
+      # - add your ssh public key here
+runcmd:
+ - [ git, clone, https://github.com/owaldhorst-hka/CPUnetPLOT ]
+ - [ cd, /home/labrat ]
+ - [ git, clone, https://github.com/owaldhorst-hka/kn1lab ]
+ - [ mkdir, -m, 777, /home/labrat/Maildir ]
+ - [ mkdir, -m, 777, /home/labrat/Maildir/new ]
+ - [ mkdir, -m, 777, /home/labrat/Maildir/cur ]
+ - [ mkdir, -m, 777, /home/labrat/Maildir/tmp ]
