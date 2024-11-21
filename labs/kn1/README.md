@@ -32,3 +32,12 @@ virsh stop
 virsh list --all
 virsh console cloud-init-001
 ```
+
+## Versuch 2
+The medium and receiver servers expect you to use the Packet class in the default unnamed class. 
+This is why you cannot use maven to setup this project. Use this instead:
+```bash
+cd src
+javac *.java
+java -classpath "." Sender
+```
